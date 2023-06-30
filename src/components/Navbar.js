@@ -12,7 +12,7 @@ const Navbar = () => {
       style={{ zIndex: "999" }}
     >
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
+        <div className="container container-fluid">
           <Link className="navbar-brand" to="/">
             DailyNews
           </Link>
@@ -27,8 +27,18 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div
+            style={{ position: "relative" }}
+            className="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
+            <ul
+              className="navbar-nav me-auto mb-2 mb-lg-0"
+              style={{
+                position: "absolute",
+                right: 0,
+              }}
+            >
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
