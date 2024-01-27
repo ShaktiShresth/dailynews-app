@@ -33,16 +33,6 @@ const News = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  // const handlePrevClick = async () => {
-  //   setPage(page - 1);
-  //   updateNews();
-  // };
-
-  // const handleNextClick = async () => {
-  //   setPage( page + 1 );
-  //   updateNews();
-  // };
-
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${
       props.country
