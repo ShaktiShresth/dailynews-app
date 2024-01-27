@@ -19,12 +19,17 @@ const News = (props) => {
     props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     setLoading(true);
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    setArticles(parsedData.articles);
-    setTotalResults(parsedData.totalResults);
-    setLoading(false);
-    props.setProgress(100);
+    try {
+      let data = await fetch(url);
+      let parsedData = await data.json();
+      setArticles(parsedData.articles || []);
+      setTotalResults(parsedData.totalResults);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+      props.setProgress(100);
+    }
   };
 
   useEffect(() => {
