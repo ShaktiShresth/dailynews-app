@@ -24,11 +24,13 @@ const News = (props) => {
       let parsedData = await data.json();
       setArticles(parsedData.articles || []);
       setTotalResults(parsedData.totalResults);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
-    } finally {
       setLoading(false);
+    } finally {
       props.setProgress(100);
+      setLoading(false);
     }
   };
 
